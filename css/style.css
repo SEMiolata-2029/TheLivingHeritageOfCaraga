@@ -1,0 +1,403 @@
+
+        /* ====================================
+           RESET AND BASE STYLES
+           ==================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #1a0000;
+            color: #ffcccc;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ====================================
+           NAVIGATION BAR - FIXED AT TOP
+           ==================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 0, 0, 0.98);
+            border-bottom: 3px solid #8b0000;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo-space {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #8b0000;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 20px;
+            border: 3px solid #ff9999;
+            position: relative;
+            top: -5px;
+        }
+
+        .logo-space::before {
+            content: "\1F3D4\FE0F";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 8px;
+        }
+
+        nav a {
+            color: #ff9999;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid #8b0000;
+            background: #3a0000;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: #5a0000;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.6);
+        }
+
+        /* HOME PAGE SHOWS BY DEFAULT */
+        #home {
+            display: block;
+        }
+
+        /* HIDE OTHER PAGES WHEN HOME IS TARGETED */
+        #home:target ~ #manobo,
+        #home:target ~ #mamanwa,
+        #home:target ~ #higaonon,
+        #home:target ~ #banwaon,
+        #home:target ~ #mandaya,
+        #home:target ~ #talaandig,
+        #home:target ~ #summary,
+        #home:target ~ #final {
+            display: none;
+        }
+
+        /* ====================================
+           PAGE LABEL - SHOWS WHICH PAGE YOU'RE ON
+           ==================================== */
+        .page-label {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: rgba(139, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 2px solid #ff6b6b;
+            color: #ffcccc;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 999;
+        }
+
+        /* ====================================
+           HEADER STYLES
+           ==================================== */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 56px;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #ffcccc;
+        }
+
+        /* ====================================
+           ARTICLE AND SECTION
+           ==================================== */
+        article {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: rgba(58, 0, 0, 0.6);
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #ff6b6b;
+            border-radius: 10px;
+            transition: all 0.4s ease;
+        }
+
+        section:hover {
+            background: rgba(58, 0, 0, 0.8);
+            transform: translateX(10px);
+            box-shadow: -5px 5px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        h2 {
+            color: #ff9999;
+            font-size: 36px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #8b0000;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #ff6b6b;
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* ====================================
+           TRIBE CARDS - USING INLINE-BLOCK (NO GRID/FLEXBOX)
+           ==================================== */
+        .tribe-grid {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .tribe-card {
+            display: inline-block;
+            width: 28%;
+            margin: 2%;
+            padding: 30px 20px;
+            background: rgba(74, 0, 0, 0.6);
+            border: 3px solid #8b0000;
+            border-radius: 15px;
+            vertical-align: top;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: #ffcccc;
+            min-height: 250px;
+        }
+
+        .tribe-card:hover {
+            background: rgba(74, 0, 0, 0.9);
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.8);
+            border-color: #ff6b6b;
+        }
+
+        .tribe-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* ====================================
+           INFO BOXES
+           ==================================== */
+        .info-box {
+            background: rgba(74, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+        }
+
+        .info-box strong {
+            color: #ff9999;
+            font-size: 18px;
+        }
+
+        /* ====================================
+           LISTS
+           ==================================== */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 40px;
+            line-height: 2;
+        }
+
+        li {
+            margin: 15px 0;
+            padding-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            color: #ffffff;
+            transform: translateX(10px);
+        }
+
+        /* ====================================
+           TABLE STYLES
+           ==================================== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(44, 0, 0, 0.8);
+        }
+
+        th {
+            background: #4a0000;
+            color: #ff9999;
+            padding: 18px;
+            text-align: left;
+            border: 2px solid #8b0000;
+            font-size: 18px;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid #8b0000;
+            background: rgba(58, 0, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        tr:hover td {
+            background: rgba(74, 0, 0, 0.8);
+        }
+
+        /* ====================================
+           SUMMARY GRID - USING TABLE LAYOUT
+           ==================================== */
+        .summary-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .summary-row {
+            display: block;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .summary-card {
+            display: inline-block;
+            width: 30%;
+            margin: 1.5%;
+            padding: 25px;
+            background: rgba(74, 0, 0, 0.6);
+            border: 3px solid #8b0000;
+            border-radius: 12px;
+            vertical-align: top;
+            transition: all 0.4s ease;
+            min-height: 300px;
+        }
+
+        .summary-card:hover {
+            background: rgba(74, 0, 0, 0.9);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.6);
+            border-color: #ff6b6b;
+        }
+
+        /* ====================================
+           IMAGE PLACEHOLDER
+           ==================================== */
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(139, 0, 0, 0.3);
+            border: 2px dashed #ff6b6b;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 200px;
+            color: #ff9999;
+            font-style: italic;
+        }
+
+        /* ====================================
+           FOOTER
+           ==================================== */
+        footer {
+            background: rgba(26, 0, 0, 0.9);
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid #8b0000;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer a {
+            color: #ff9999;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* ====================================
+           DECORATIVE ELEMENTS
+           ==================================== */
+        .decorative-line {
+            width: 80%;
+            height: 3px;
+            background: #ff6b6b;
+            margin: 40px auto;
+        }
+
+        /* ====================================
+           RESPONSIVE DESIGN
+           ==================================== */
+        @media (max-width: 768px) {
+            .tribe-card, .summary-card {
+                width: 90%;
+                margin: 3% auto;
+                display: block;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            nav li {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .logo-space {
+                display: block;
+                margin: 0 auto 15px auto;
+            }
+
+            .page {
+                padding-top: 180px;
+            }
+        }
